@@ -1,0 +1,25 @@
+.performance-tabs {
+  
+  .govuk-grid-row + .govuk-grid-row {
+    margin-top: 20px;
+  }
+
+  .show-when-wide {
+    display: none;
+    @include govuk-media-query($from: tablet) {    
+      display: inline-block;
+    }
+  }
+
+  .show-when-thin {
+    display: none;
+    @include govuk-media-query($until: tablet) {    
+      display: block;
+    }
+  }
+
+
+
+}
+
+

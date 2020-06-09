@@ -1,0 +1,188 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Service performance
+      </h1>
+    </div>
+
+  </div>
+
+  <h2 class="govuk-heading-m">Providers</h2>
+  
+  <div class="govuk-grid-row"> 
+    <div class="govuk-grid-column-one-half">
+      <div class="app-card">
+        <span class="app-card__secondary-count">1087</span>
+        (findable?)(listed?) providers
+      </div>
+    </div>
+
+    <div class="govuk-grid-column-one-quarter">
+      <div class="app-card app-card--green">
+        <span class="app-card__secondary-count">976</span>
+        with open courses
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-quarter">
+      <div class="app-card app-card--red">
+        <span class="app-card__secondary-count">111</span>
+        with closed courses
+      </div>
+    </div>
+  </div>
+  
+  <h2 class="govuk-heading-m govuk-!-margin-top-6">Courses</h2>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <div class="app-card">
+        <span class="app-card__secondary-count">12995</span>
+        (findable?)(listed?) courses
+      </div>
+    </div>
+
+    <div class="govuk-grid-column-one-quarter">
+      <div class="app-card app-card--green">
+        <span class="app-card__secondary-count">8408</span>
+        open
+      </div>
+    </div>
+
+    <div class="govuk-grid-column-one-quarter">
+      <div class="app-card app-card--red">
+        <span class="app-card__secondary-count">4582</span>
+        closed
+      </div>
+    </div>
+  </div>
+  
+  <h2 class="govuk-heading-m govuk-!-margin-top-6">Users</h2>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <div class="app-card">
+        <span class="app-card__secondary-count">3030</span>
+        Publish users
+      </div>
+    </div>
+
+    <div class="govuk-grid-column-one-quarter">
+      <div class="app-card app-card--green">
+        <span class="app-card__secondary-count">1858</span>
+        active
+      </div>
+    </div>
+
+    <div class="govuk-grid-column-one-quarter">
+      <div class="app-card app-card--red">
+        <span class="app-card__secondary-count">1172</span>
+        non-active
+      </div>
+    </div>
+  </div>
+  
+  <h2 class="govuk-heading-m govuk-!-margin-top-6">Allocations</h2>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <div class="app-card">
+        <span class="app-card__secondary-count">4</span>
+        requests submitted
+      </div>
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+      <div class="app-card app-card--green">
+        <span class="app-card__secondary-count">36</span>
+        placed requested
+      </div>
+    </div>
+
+  </div>
+  <div class="govuk-grid-row govuk-!-margin-top-8">
+    <div class="govuk-grid-column-full-width govuk-!-padding-left-3 govuk-!-padding-right-3">
+
+      {% set providersTab %}
+      <h3 class="govuk-heading-l">Providers</h2>
+      <div class="govuk-grid-row"> 
+        <div class="govuk-grid-column-one-half">
+          <div class="app-card">
+            <span class="app-card__secondary-count">1088</span>
+            (findable?)(listed?) providers
+          </div>
+        </div>
+
+        <div class="govuk-grid-column-one-half">
+          <div class="app-card app-card--green">
+            <span class="app-card__secondary-count">969</span>
+            with open courses
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-half">
+          <div class="app-card app-card--red">
+            <span class="app-card__secondary-count">119</span>
+            with closed courses
+          </div>
+        </div>
+      </div>
+      {% endset -%}
+
+      {% set coursesTab %}
+      <h2 class="govuk-heading-l">Courses</h2>
+      ...
+      {% endset -%}
+
+      {% set publishActivityTab %}
+      <h2 class="govuk-heading-l">Activity in Pubish</h2>
+      ...
+      {% endset -%}
+
+      {% set allocationsTab %}
+      <h2 class="govuk-heading-l">Allocations</h2>
+      ...
+      {% endset -%}
+
+      {{ govukTabs({
+        items: [
+          {
+            label: "Providers",
+            id: "providers",
+            panel: {
+              html: providersTab
+            }
+          },
+          {
+            label: "Courses",
+            id: "courses",
+            panel: {
+              html: coursesTab
+            }
+          },
+          {
+            label: "Activity in Pubish",
+            id: "publish-activity",
+            panel: {
+              html: publishActivityTab
+            }
+          },
+          {
+            label: "Allocations",
+            id: "allocations",
+            panel: {
+              html: allocationsTab
+            }
+          }
+        ]
+      }) }}
+            
+      {% endblock %}
+    </div>
+  </div>
+  
