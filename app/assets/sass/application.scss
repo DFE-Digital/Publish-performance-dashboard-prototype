@@ -20,3 +20,14 @@ $govuk-assets-path: '/govuk/assets/';
 @import "components/performance-dash";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+.govuk-header { 
+    .govuk-header__logo {
+        width: auto !important;
+    }
+
+    .govuk-header__content {
+        width: auto !important;
+        float: right;
+    }
+}
