@@ -1,11 +1,20 @@
 
-{% extends "layout.html" %}
+{% extends "layout-wide.html" %}
 
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
 
+
+
 {% block content %}
+  <style>
+    .govuk-width-container {
+      max-width: none;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  </style>
 
   <div class="govuk-grid-row">
     

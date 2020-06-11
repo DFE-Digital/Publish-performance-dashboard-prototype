@@ -1,0 +1,981 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Service performance
+      </h1>
+    </div>
+
+  </div>
+  
+  <div class="govuk-grid-row"> 
+    
+    <div class="govuk-grid-column-one-quarter">
+      <h2 class="govuk-heading-m">Providers</h2>
+      <div class="app-card">
+        <span class="app-card__secondary-count">1,059</span>
+        using Publish
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-quarter">
+      <h2 class="govuk-heading-m">Courses</h2>
+      <div class="app-card">
+        <span class="app-card__secondary-count">12,995</span>
+        available on Find
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-quarter">
+      <h2 class="govuk-heading-m">Users</h2>
+      <div class="app-card">
+        <span class="app-card__secondary-count">3,031</span>
+        registered in Publish
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-quarter">
+      <h2 class="govuk-heading-m">Allocations</h2>
+      <div class="app-card">
+        <span class="app-card__secondary-count">93</span>
+        requests made
+      </div>
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row govuk-!-margin-top-8 performance-tabs">
+    
+    <div class="govuk-grid-column-full-width govuk-!-padding-left-3 govuk-!-padding-right-3">
+
+      {% set providersTab %}
+      <h2 class="govuk-heading-l">Providers</h2>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full-width govuk-!-padding-left-3 govuk-!-padding-right-3">
+          <div class="app-card app-card--blue">
+            <span class="app-card__secondary-count">1,059</span>
+            using Publish
+          </div>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-one-third">
+          <div class="app-card app-card--green">
+            <span class="app-card__tertiary-count">905</span>
+            with published courses
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <div class="app-card app-card--red">
+            <span class="app-card__tertiary-count">154</span>
+            with courses not published
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <div class="app-card">
+            <span class="app-card__tertiary-count">227</span>
+            accredited bodies
+          </div>
+        </div>
+        
+      </div>  
+      
+      <h2 class="govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-0">Provider types</h2>
+      <p>Description of this data set</p>
+      
+      {{ govukTable({
+        caption: "Provider type",
+        captionClasses: "govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-0 govuk-visually-hidden",
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Type",
+            classes: 'govuk-!-width-one-third'
+          },
+          {
+            text: "With open courses",
+            classes: 'govuk-!-width-one-third',
+            format: "numeric"
+          },
+          {
+            text: "With closed courses",
+            classes: 'govuk-!-width-one-third',
+            format: "numeric"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Lead School"
+            },
+            {
+              text: "699",
+              format: "numeric"
+            },
+            {
+              text: "140",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "SCITT"
+            },
+            {
+              text: "132",
+              format: "numeric"
+            },
+            {
+              text: "16",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "University"
+            },
+            {
+              text: "71",
+              format: "numeric"
+            },
+            {
+              text: "0",
+              format: "numeric"
+            }
+          ]
+        ]
+      }) }}
+      
+      <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-0">Region</h2>
+      <p>Description of this data set</p>
+      
+      {{ govukTable({
+        caption: "Region",
+        captionClasses: "govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-0 govuk-visually-hidden",
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Region",
+            classes: 'govuk-!-width-one-third'
+          },
+          {
+            text: "Has courses running",
+            classes: 'govuk-!-width-one-third',
+            format: "numeric"
+          },
+          {
+            text: "No courses running",
+            classes: 'govuk-!-width-one-third',
+            format: "numeric"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "London"
+            },
+            {
+              text: "139",
+              format: "numeric"
+            },
+            {
+              text: "25",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "South East"
+            },
+            {
+              text: "133",
+              format: "numeric"
+            },
+            {
+              text: "24",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "North West"
+            },
+            {
+              text: "115",
+              format: "numeric"
+            },
+            {
+              text: "12",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Yorkshire and the Humber"
+            },
+            {
+              text: "115",
+              format: "numeric"
+            },
+            {
+              text: "14",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "West Midlands"
+            },
+            {
+              text: "106",
+              format: "numeric"
+            },
+            {
+              text: "19",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "Eastern"
+            },
+            {
+              text: "106",
+              format: "numeric"
+            },
+            {
+              text: "23",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "South West"
+            },
+            {
+              text: "67",
+              format: "numeric"
+            },
+            {
+              text: "19",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "East Midlands"
+            },
+            {
+              text: "64",
+              format: "numeric"
+            },
+            {
+              text: "19",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "North East"
+            },
+            {
+              text: "55",
+              format: "numeric"
+            },
+            {
+              text: "10",
+              format: "numeric"
+            }
+          ]
+        ]
+      }) }}
+
+      {% endset -%}
+
+      {% set coursesTab %}
+        <h2 class="govuk-heading-l">Courses</h2>
+        <div class="govuk-grid-row">
+          
+          <div class="govuk-grid-column-full-width govuk-!-padding-left-3 govuk-!-padding-right-3">
+            <div class="app-card app-card--blue">
+              <span class="app-card__secondary-count">12,995</span>
+              courses listed in Find
+            </div>
+          </div>
+
+        </div>
+
+        <div class="govuk-grid-row">
+
+          <div class="govuk-grid-column-one-third">
+            <div class="app-card app-card--green">
+              <span class="app-card__tertiary-count">8,086</span>
+              open courses
+            </div>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <div class="app-card app-card--red">
+              <span class="app-card__tertiary-count">4,909</span>
+              closed courses
+            </div>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <div class="app-card">
+              <span class="app-card__tertiary-count">###</span>
+              draft courses
+            </div>
+          </div>
+
+        </div>
+
+        <h2 class="govuk-heading-l govuk-!-margin-top-6">Course activity</h2>
+      
+        <div class="govuk-grid-row">
+
+          <div class="govuk-grid-column-one-third">
+            <div class="app-card">
+              <span class="app-card__tertiary-count">###</span>
+              recently published
+            </div>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <div class="app-card">
+              <span class="app-card__tertiary-count">###</span>
+              recently closed
+            </div>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <div class="app-card">
+              <span class="app-card__tertiary-count">###</span>
+              recently created drafts
+            </div>
+          </div>
+        
+        </div>
+
+        <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-0">Provider type</h2>
+        <p>Description of this data set</p>
+
+        {{ govukTable({
+          caption: "Provider type",
+          captionClasses: "govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-0 govuk-visually-hidden",
+          firstCellIsHeader: true,
+          head: [
+            {
+              text: "Type",
+              classes: 'govuk-!-width-one-third'
+            },
+            {
+              text: "Open courses",
+              classes: 'govuk-!-width-one-third',
+              format: "numeric"
+            },
+            {
+              text: "Closed courses",
+              classes: 'govuk-!-width-one-third',
+              format: "numeric"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Lead School"
+              },
+              {
+                text: "5,800",
+                format: "numeric"
+              },
+              {
+                text: "4112",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "SCITT"
+              },
+              {
+                text: "2,000",
+                format: "numeric"
+              },
+              {
+                text: "200",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "University"
+              },
+              {
+                text: "71",
+                format: "numeric"
+              },
+              {
+                text: "15",
+                format: "numeric"
+              }
+            ]
+          ]
+        }) }}
+        
+        <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-0">Program type</h2>
+        <p>Description of this data set</p>
+
+        {{ govukTable({
+          caption: "Program type",
+          captionClasses: "govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-0 govuk-visually-hidden",
+          firstCellIsHeader: true,
+          head: [
+            {
+              text: "Type",
+              classes: 'govuk-!-width-one-third'
+            },
+            {
+              text: "Courses running",
+              classes: 'govuk-!-width-one-third',
+              format: "numeric"
+            },
+            {
+              text: "Courses not running",
+              classes: 'govuk-!-width-one-third',
+              format: "numeric"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Higher education"
+              },
+              {
+                text: "5,800",
+                format: "numeric"
+              },
+              {
+                text: "4,112",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "School direct (non-salaried)"
+              },
+              {
+                text: "2,000",
+                format: "numeric"
+              },
+              {
+                text: "200",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "School direct (salaried)"
+              },
+              {
+                text: "71",
+                format: "numeric"
+              },
+              {
+                text: "15",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "SCITT"
+              },
+              {
+                text: "22",
+                format: "numeric"
+              },
+              {
+                text: "5",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "Post graduate teaching apprenticeship"
+              },
+              {
+                text: "13",
+                format: "numeric"
+              },
+              {
+                text: "2",
+                format: "numeric"
+              }
+            ]
+          ]
+        }) }}
+
+        <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-0">Study mode</h2>
+        <p>Description of this data set</p>
+
+        {{ govukTable({
+          caption: "Study mode",
+          captionClasses: "govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-0 govuk-visually-hidden",
+          firstCellIsHeader: true,
+          head: [
+            {
+              text: "Mode",
+              classes: 'govuk-!-width-one-third'
+            },
+            {
+              text: "Open",
+              classes: 'govuk-!-width-one-third',
+              format: "numeric"
+            },
+            {
+              text: "Closed",
+              classes: 'govuk-!-width-one-third',
+              format: "numeric"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Full time"
+              },
+              {
+                text: "5,800",
+                format: "numeric"
+              },
+              {
+                text: "4,112",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "Full time or part time"
+              },
+              {
+                text: "2,000",
+                format: "numeric"
+              },
+              {
+                text: "200",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "Part time"
+              },
+              {
+                text: "71",
+                format: "numeric"
+              },
+              {
+                text: "15",
+                format: "numeric"
+              }
+            ]
+          ]
+        }) }}
+        
+        <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-0">Study mode</h2>
+        <p>Description of this data set</p>
+
+        {{ govukTable({
+          caption: "Qualification",
+          captionClasses: "govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-0 govuk-visually-hidden",
+          firstCellIsHeader: true,
+          head: [
+            {
+              text: "Type",
+              classes: 'govuk-!-width-one-third'
+            },
+            {
+              text: "Open",
+              classes: 'govuk-!-width-one-third',
+              format: "numeric"
+            },
+            {
+              text: "Closed",
+              classes: 'govuk-!-width-one-third',
+              format: "numeric"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "QTS"
+              },
+              {
+                text: "5,800",
+                format: "numeric"
+              },
+              {
+                text: "4,112",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "PGCE with QTS"
+              },
+              {
+                text: "2,000",
+                format: "numeric"
+              },
+              {
+                text: "200",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "PGDE with QTS"
+              },
+              {
+                text: "71",
+                format: "numeric"
+              },
+              {
+                text: "15",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "PGCE"
+              },
+              {
+                text: "71",
+                format: "numeric"
+              },
+              {
+                text: "15",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "PGDE"
+              },
+              {
+                text: "71",
+                format: "numeric"
+              },
+              {
+                text: "15",
+                format: "numeric"
+              }
+            ]
+          ]
+        }) }}
+
+        <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-0">Send</h2>
+        <p>Description of this data set</p>
+
+        {{ govukTable({
+          caption: "Is it a send course?",
+          captionClasses: "govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-0 govuk-visually-hidden",
+          firstCellIsHeader: true,
+          head: [
+            {
+              text: "Type",
+              classes: 'govuk-!-width-one-third'
+            },
+            {
+              text: "Open",
+              classes: 'govuk-!-width-one-third',
+              format: "numeric"
+            },
+            {
+              text: "Closed",
+              classes: 'govuk-!-width-one-third',
+              format: "numeric"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Send"
+              },
+              {
+                text: "5,800",
+                format: "numeric"
+              },
+              {
+                text: "4112",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "Not Send"
+              },
+              {
+                text: "2,000",
+                format: "numeric"
+              },
+              {
+                text: "200",
+                format: "numeric"
+              }
+            ]
+          ]
+        }) }}
+        
+        <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-0">Course subject</h2>
+        <p>Description of this data set</p>
+
+        {{ govukTable({
+          caption: "Course subject",
+          captionClasses: "govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-0 govuk-visually-hidden",
+          firstCellIsHeader: true,
+          head: [
+            {
+              text: "Subject",
+              classes: 'govuk-!-width-one-third'
+            },
+            {
+              text: "Open",
+              classes: 'govuk-!-width-one-third',
+              format: "numeric"
+            },
+            {
+              text: "Closed",
+              classes: 'govuk-!-width-one-third',
+              format: "numeric"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "Primary"
+              },
+              {
+                text: "5,800",
+                format: "numeric"
+              },
+              {
+                text: "4,112",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "Primary with English"
+              },
+              {
+                text: "2,000",
+                format: "numeric"
+              },
+              {
+                text: "200",
+                format: "numeric"
+              }
+            ],
+            [
+              {
+                text: "subjects continue..."
+              },
+              {
+                text: "#",
+                format: "numeric"
+              },
+              {
+                text: "#",
+                format: "numeric"
+              }
+            ]
+          ]
+        }) }}
+
+      {% endset -%}
+
+      {% set usersTab %}
+      <h2 class="govuk-heading-l">Users</h2>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full-width govuk-!-padding-left-3 govuk-!-padding-right-3">
+          <div class="app-card app-card--blue">
+            <span class="app-card__secondary-count">3,031</span>
+            registered
+          </div>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-one-third">
+          <div class="app-card app-card--green">
+            <span class="app-card__tertiary-count">1,862</span>
+            active
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <div class="app-card app-card--red">
+            <span class="app-card__tertiary-count">1,169</span>
+            not active)
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <div class="app-card">
+            <span class="app-card__tertiary-count">550</span>
+            active in the last 30 days
+          </div>
+        </div>
+
+      </div>
+
+      {% endset -%}
+
+      {% set allocationsTab %}
+      <h2 class="govuk-heading-l">Allocations</h2>
+    
+      <h3 class="govuk-heading-m govuk-!-margin-top-6">PE Requests for 2021 – 2022</h3>
+      
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-one-quarter">
+          <div class="app-card app">
+            <span class="app-card__tertiary-count">24</span>
+            requests
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-quarter">
+          <div class="app-card">
+            <span class="app-card__tertiary-count">149</span>
+            number of places
+          </div>
+        </div>
+
+        <div class="govuk-grid-column-one-quarter">
+          <div class="app-card">
+            <span class="app-card__tertiary-count">15</span>
+            accredited bodies
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-quarter">
+          <div class="app-card">
+            <span class="app-card__tertiary-count">24</span>
+            providers
+          </div>
+        </div>
+
+      </div>
+      
+      <h3 class="govuk-heading-m govuk-!-margin-top-6">PE Requests for 2020 – 2021</h3>
+      
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-one-quarter">
+          <div class="app-card">
+            <span class="app-card__tertiary-count">433</span>
+            requests
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-quarter">
+          <div class="app-card">
+            <span class="app-card__tertiary-count">1,461</span>
+            number of places
+          </div>
+        </div>
+
+        <div class="govuk-grid-column-one-quarter">
+          <div class="app-card">
+            <span class="app-card__tertiary-count">153</span>
+            accredited bodies
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-quarter">
+          <div class="app-card">
+            <span class="app-card__tertiary-count">397</span>
+            providers
+          </div>
+        </div>
+
+      </div>
+
+      {% endset -%}
+      
+      {% set rolloverTab %}
+      <h2 class="govuk-heading-l">Rollover</h2>
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full-width govuk-!-padding-left-3 govuk-!-padding-right-3">
+          <div class="app-card app-card--blue">
+            <span class="app-card__secondary-count">###</span>
+            courses published for next cycle
+          </div>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-one-half">
+          <div class="app-card app-card--green">
+            <span class="app-card__tertiary-count">###</span>
+            new courses created
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-half">
+          <div class="app-card app-card--red">
+            <span class="app-card__tertiary-count">###</span>
+            existing courses deleted
+          </div>
+        </div>
+
+      </div>
+
+      {% endset -%}
+
+      {{ govukTabs({
+        items: [
+          {
+            label: "Providers",
+            id: "providers",
+            panel: {
+              html: providersTab
+            }
+          },
+          {
+            label: "Courses",
+            id: "courses",
+            panel: {
+              html: coursesTab
+            }
+          },
+          {
+            label: "Users",
+            id: "users-activity",
+            panel: {
+              html: usersTab
+            }
+          },
+          {
+            label: "Allocations",
+            id: "allocations",
+            panel: {
+              html: allocationsTab
+            }
+          },
+          {
+            label: "Rollover",
+            id: "rollover",
+            panel: {
+              html: rolloverTab
+            }
+          }
+        ]
+      }) }}
+            
+      {% endblock %}
+
+    </div>
+  </div>
+  
