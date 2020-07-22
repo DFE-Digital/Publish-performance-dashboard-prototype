@@ -2,7 +2,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+  Service status
 {% endblock %}
 
 {% block content %}
@@ -11,7 +11,7 @@
     
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        Service performance
+        Service status
       </h1>
     </div>
 
@@ -70,13 +70,13 @@
         <div class="govuk-grid-column-one-third">
           <div class="app-card app-card--green">
             <span class="app-card__tertiary-count">905</span>
-            with published courses
+            with open courses
           </div>
         </div>
         <div class="govuk-grid-column-one-third">
           <div class="app-card app-card--red">
             <span class="app-card__tertiary-count">154</span>
-            with courses not published
+            with closed courses
           </div>
         </div>
         <div class="govuk-grid-column-one-third">
@@ -88,8 +88,8 @@
         
       </div>  
       
-      <h2 class="govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-0">Provider types</h2>
-      <p>Description of this data set</p>
+      <h2 class="govuk-heading-l govuk-!-margin-top-6">Provider types</h2>
+      {# <p>Description of this data set</p> #}
       
       {{ govukTable({
         caption: "Provider type",
@@ -97,17 +97,22 @@
         firstCellIsHeader: true,
         head: [
           {
-            text: "Type",
+            html: "<span class='govuk-visually-hidden'>Type</span>",
             classes: 'govuk-!-width-one-third'
           },
           {
-            text: "With open courses",
-            classes: 'govuk-!-width-one-third',
+            html: "Open courses <span class='govuk-table__header-hint'>Has vacancies</span>",
+            classes: 'govuk-!-width-one-quarter',
             format: "numeric"
           },
           {
-            text: "With closed courses",
-            classes: 'govuk-!-width-one-third',
+            html: "Closed courses <span class='govuk-table__header-hint'>No vacancies or is withdrawn</span>",
+            classes: 'govuk-!-width-one-quarter',
+            format: "numeric"
+          },
+          {
+            html: "Total <span class='govuk-table__header-hint'>Published this cycle</span>",
+            classes: '',
             format: "numeric"
           }
         ],
@@ -123,6 +128,10 @@
             {
               text: "140",
               format: "numeric"
+            },
+            {
+              text: "x",
+              format: "numeric"
             }
           ],
           [
@@ -135,6 +144,10 @@
             },
             {
               text: "16",
+              format: "numeric"
+            },
+            {
+              text: "x",
               format: "numeric"
             }
           ],
@@ -149,13 +162,17 @@
             {
               text: "0",
               format: "numeric"
+            },
+            {
+              text: "x",
+              format: "numeric"
             }
           ]
         ]
       }) }}
       
-      <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-0">Region</h2>
-      <p>Description of this data set</p>
+      <h2 class="govuk-heading-l govuk-!-margin-top-4">Region</h2>
+      {# <p>Description of this data set</p> #}
       
       {{ govukTable({
         caption: "Region",
@@ -163,17 +180,23 @@
         firstCellIsHeader: true,
         head: [
           {
-            text: "Region",
+            html: "<span class='govuk-visually-hidden'>Region</span>",
             classes: 'govuk-!-width-one-third'
           },
           {
-            text: "Has courses running",
-            classes: 'govuk-!-width-one-third',
+            html: "Open courses <span class='govuk-table__header-hint'>Has vacancies</span>",
+            hint: "test",
+            classes: 'govuk-!-width-one-quarter',
             format: "numeric"
           },
           {
-            text: "No courses running",
-            classes: 'govuk-!-width-one-third',
+            html: "Closed courses <span class='govuk-table__header-hint'>No vacancies or is withdrawn</span>",
+            classes: 'govuk-!-width-one-quarter',
+            format: "numeric"
+          },
+          {
+            html: "Total <span class='govuk-table__header-hint'>Published this cycle</span>",
+            classes: '',
             format: "numeric"
           }
         ],
@@ -189,109 +212,26 @@
             {
               text: "25",
               format: "numeric"
-            }
-          ],
-          [
-            {
-              text: "South East"
             },
             {
-              text: "133",
-              format: "numeric"
-            },
-            {
-              text: "24",
+              text: "x",
               format: "numeric"
             }
           ],
           [
             {
-              text: "North West"
+              text: "..."
             },
             {
-              text: "115",
+              text: "...",
               format: "numeric"
             },
             {
-              text: "12",
-              format: "numeric"
-            }
-          ],
-          [
-            {
-              text: "Yorkshire and the Humber"
-            },
-            {
-              text: "115",
+              text: "...",
               format: "numeric"
             },
             {
-              text: "14",
-              format: "numeric"
-            }
-          ],
-          [
-            {
-              text: "West Midlands"
-            },
-            {
-              text: "106",
-              format: "numeric"
-            },
-            {
-              text: "19",
-              format: "numeric"
-            }
-          ],
-          [
-            {
-              text: "Eastern"
-            },
-            {
-              text: "106",
-              format: "numeric"
-            },
-            {
-              text: "23",
-              format: "numeric"
-            }
-          ],
-          [
-            {
-              text: "South West"
-            },
-            {
-              text: "67",
-              format: "numeric"
-            },
-            {
-              text: "19",
-              format: "numeric"
-            }
-          ],
-          [
-            {
-              text: "East Midlands"
-            },
-            {
-              text: "64",
-              format: "numeric"
-            },
-            {
-              text: "19",
-              format: "numeric"
-            }
-          ],
-          [
-            {
-              text: "North East"
-            },
-            {
-              text: "55",
-              format: "numeric"
-            },
-            {
-              text: "10",
+              text: "...",
               format: "numeric"
             }
           ]
@@ -343,26 +283,26 @@
           <div class="govuk-grid-column-one-third">
             <div class="app-card">
               <span class="app-card__tertiary-count">###</span>
-              recently published
+              published in the last 30 days
             </div>
           </div>
           <div class="govuk-grid-column-one-third">
             <div class="app-card">
               <span class="app-card__tertiary-count">###</span>
-              recently closed
+              closed in the last 30 days
             </div>
           </div>
           <div class="govuk-grid-column-one-third">
             <div class="app-card">
               <span class="app-card__tertiary-count">###</span>
-              recently created drafts
+              drafts in the last 30 days
             </div>
           </div>
         
         </div>
 
-        <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-0">Provider type</h2>
-        <p>Description of this data set</p>
+        <h2 class="govuk-heading-l govuk-!-margin-top-4">Provider type</h2>
+        {# <p>Description of this data set</p> #}
 
         {{ govukTable({
           caption: "Provider type",
@@ -370,17 +310,21 @@
           firstCellIsHeader: true,
           head: [
             {
-              text: "Type",
+              html: "<span class='govuk-visually-hidden'>Type</span>",
               classes: 'govuk-!-width-one-third'
             },
             {
-              text: "Open courses",
-              classes: 'govuk-!-width-one-third',
+              html: "Open courses <span class='govuk-table__header-hint'>Has vacancies</span>",
+              classes: 'govuk-!-width-one-quarter',
               format: "numeric"
             },
             {
-              text: "Closed courses",
-              classes: 'govuk-!-width-one-third',
+              html: "Closed courses <span class='govuk-table__header-hint'>No vacancies or is withdrawn</span>",
+              classes: 'govuk-!-width-one-quarter',
+              format: "numeric"
+            },
+            {
+              html: "Total <span class='govuk-table__header-hint'>Published this cycle</span>",
               format: "numeric"
             }
           ],
@@ -396,6 +340,10 @@
               {
                 text: "4112",
                 format: "numeric"
+              },
+              {
+                text: "x",
+                format: "numeric"
               }
             ],
             [
@@ -408,6 +356,10 @@
               },
               {
                 text: "200",
+                format: "numeric"
+              },
+              {
+                text: "x",
                 format: "numeric"
               }
             ],
@@ -422,13 +374,17 @@
               {
                 text: "15",
                 format: "numeric"
+              },
+              {
+                text: "x",
+                format: "numeric"
               }
             ]
           ]
         }) }}
         
-        <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-0">Program type</h2>
-        <p>Description of this data set</p>
+        <h2 class="govuk-heading-l govuk-!-margin-top-4">Program type</h2>
+        {# <p>Description of this data set</p> #}
 
         {{ govukTable({
           caption: "Program type",
@@ -436,17 +392,21 @@
           firstCellIsHeader: true,
           head: [
             {
-              text: "Type",
+              html: "<span class='govuk-visually-hidden'>Type</span>",
               classes: 'govuk-!-width-one-third'
             },
             {
-              text: "Courses running",
-              classes: 'govuk-!-width-one-third',
+              html: "Open courses <span class='govuk-table__header-hint'>Has vacancies</span>",
+              classes: 'govuk-!-width-one-quarter',
               format: "numeric"
             },
             {
-              text: "Courses not running",
-              classes: 'govuk-!-width-one-third',
+              html: "Closed courses <span class='govuk-table__header-hint'>No vacancies or is withdrawn</span>",
+              classes: 'govuk-!-width-one-quarter',
+              format: "numeric"
+            },
+            {
+              html: "Total <span class='govuk-table__header-hint'>Published this cycle</span>",
               format: "numeric"
             }
           ],
@@ -462,6 +422,10 @@
               {
                 text: "4,112",
                 format: "numeric"
+              },
+              {
+                text: "x",
+                format: "numeric"
               }
             ],
             [
@@ -474,6 +438,10 @@
               },
               {
                 text: "200",
+                format: "numeric"
+              },
+              {
+                text: "x",
                 format: "numeric"
               }
             ],
@@ -488,6 +456,10 @@
               {
                 text: "15",
                 format: "numeric"
+              },
+              {
+                text: "x",
+                format: "numeric"
               }
             ],
             [
@@ -500,6 +472,10 @@
               },
               {
                 text: "5",
+                format: "numeric"
+              },
+              {
+                text: "x",
                 format: "numeric"
               }
             ],
@@ -514,13 +490,17 @@
               {
                 text: "2",
                 format: "numeric"
+              },
+              {
+                text: "x",
+                format: "numeric"
               }
             ]
           ]
         }) }}
 
-        <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-0">Study mode</h2>
-        <p>Description of this data set</p>
+        <h2 class="govuk-heading-l govuk-!-margin-top-4">Study mode</h2>
+        {# <p>Description of this data set</p> #}
 
         {{ govukTable({
           caption: "Study mode",
@@ -528,17 +508,21 @@
           firstCellIsHeader: true,
           head: [
             {
-              text: "Mode",
+              html: "<span class='govuk-visually-hidden'>Mode</span>",
               classes: 'govuk-!-width-one-third'
             },
             {
-              text: "Open",
-              classes: 'govuk-!-width-one-third',
+              html: "Open courses <span class='govuk-table__header-hint'>Has vacancies</span>",
+              classes: 'govuk-!-width-one-quarter',
               format: "numeric"
             },
             {
-              text: "Closed",
-              classes: 'govuk-!-width-one-third',
+              html: "Closed courses <span class='govuk-table__header-hint'>No vacancies or is withdrawn</span>",
+              classes: 'govuk-!-width-one-quarter',
+              format: "numeric"
+            },
+            {
+              html: "Total <span class='govuk-table__header-hint'>Published this cycle</span>",
               format: "numeric"
             }
           ],
@@ -554,6 +538,10 @@
               {
                 text: "4,112",
                 format: "numeric"
+              },
+              {
+                text: "x",
+                format: "numeric"
               }
             ],
             [
@@ -566,6 +554,10 @@
               },
               {
                 text: "200",
+                format: "numeric"
+              },
+              {
+                text: "x",
                 format: "numeric"
               }
             ],
@@ -580,13 +572,17 @@
               {
                 text: "15",
                 format: "numeric"
+              },
+              {
+                text: "x",
+                format: "numeric"
               }
             ]
           ]
         }) }}
         
-        <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-0">Study mode</h2>
-        <p>Description of this data set</p>
+        <h2 class="govuk-heading-l govuk-!-margin-top-4">Qualification</h2>
+        {# <p>Description of this data set</p> #}
 
         {{ govukTable({
           caption: "Qualification",
@@ -594,17 +590,21 @@
           firstCellIsHeader: true,
           head: [
             {
-              text: "Type",
+              html: "<span class='govuk-visually-hidden'>Type</span>",
               classes: 'govuk-!-width-one-third'
             },
             {
-              text: "Open",
-              classes: 'govuk-!-width-one-third',
+              html: "Open courses <span class='govuk-table__header-hint'>Has vacancies</span>",
+              classes: 'govuk-!-width-one-quarter',
               format: "numeric"
             },
             {
-              text: "Closed",
-              classes: 'govuk-!-width-one-third',
+              html: "Closed courses <span class='govuk-table__header-hint'>No vacancies or is withdrawn</span>",
+              classes: 'govuk-!-width-one-quarter',
+              format: "numeric"
+            },
+            {
+              html: "Total <span class='govuk-table__header-hint'>Published this cycle</span>",
               format: "numeric"
             }
           ],
@@ -620,6 +620,10 @@
               {
                 text: "4,112",
                 format: "numeric"
+              },
+              {
+                text: "x",
+                format: "numeric"
               }
             ],
             [
@@ -633,6 +637,10 @@
               {
                 text: "200",
                 format: "numeric"
+              },
+              {
+                text: "x",
+                format: "numeric"
               }
             ],
             [
@@ -640,45 +648,23 @@
                 text: "PGDE with QTS"
               },
               {
-                text: "71",
+                text: "...",
                 format: "numeric"
               },
               {
-                text: "15",
-                format: "numeric"
-              }
-            ],
-            [
-              {
-                text: "PGCE"
-              },
-              {
-                text: "71",
+                text: "...",
                 format: "numeric"
               },
               {
-                text: "15",
-                format: "numeric"
-              }
-            ],
-            [
-              {
-                text: "PGDE"
-              },
-              {
-                text: "71",
-                format: "numeric"
-              },
-              {
-                text: "15",
+                text: "...",
                 format: "numeric"
               }
             ]
           ]
         }) }}
 
-        <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-0">Send</h2>
-        <p>Description of this data set</p>
+        <h2 class="govuk-heading-l govuk-!-margin-top-4">Send</h2>
+        {# <p>Description of this data set</p> #}
 
         {{ govukTable({
           caption: "Is it a send course?",
@@ -686,17 +672,21 @@
           firstCellIsHeader: true,
           head: [
             {
-              text: "Type",
+              html: "<span class='govuk-visually-hidden'>Type</span>",
               classes: 'govuk-!-width-one-third'
             },
             {
-              text: "Open",
-              classes: 'govuk-!-width-one-third',
+              html: "Open courses <span class='govuk-table__header-hint'>Has vacancies</span>",
+              classes: 'govuk-!-width-one-quarter',
               format: "numeric"
             },
             {
-              text: "Closed",
-              classes: 'govuk-!-width-one-third',
+              html: "Closed courses <span class='govuk-table__header-hint'>No vacancies or is withdrawn</span>",
+              classes: 'govuk-!-width-one-quarter',
+              format: "numeric"
+            },
+            {
+              html: "Total <span class='govuk-table__header-hint'>Published this cycle</span>",
               format: "numeric"
             }
           ],
@@ -712,6 +702,10 @@
               {
                 text: "4112",
                 format: "numeric"
+              },
+              {
+                text: "x",
+                format: "numeric"
               }
             ],
             [
@@ -725,13 +719,17 @@
               {
                 text: "200",
                 format: "numeric"
+              },
+              {
+                text: "x",
+                format: "numeric"
               }
             ]
           ]
         }) }}
         
-        <h2 class="govuk-heading-l govuk-!-margin-top-4 govuk-!-margin-bottom-0">Course subject</h2>
-        <p>Description of this data set</p>
+        <h2 class="govuk-heading-l govuk-!-margin-top-4">Course subject</h2>
+        {# <p>Description of this data set</p> #}
 
         {{ govukTable({
           caption: "Course subject",
@@ -739,17 +737,21 @@
           firstCellIsHeader: true,
           head: [
             {
-              text: "Subject",
+              html: "<span class='govuk-visually-hidden'>Subject</span>",
               classes: 'govuk-!-width-one-third'
             },
             {
-              text: "Open",
-              classes: 'govuk-!-width-one-third',
+              html: "Open courses <span class='govuk-table__header-hint'>Has vacancies</span>",
+              classes: 'govuk-!-width-one-quarter',
               format: "numeric"
             },
             {
-              text: "Closed",
-              classes: 'govuk-!-width-one-third',
+              html: "Closed courses <span class='govuk-table__header-hint'>No vacancies or is withdrawn</span>",
+              classes: 'govuk-!-width-one-quarter',
+              format: "numeric"
+            },
+            {
+              html: "Total <span class='govuk-table__header-hint'>Published this cycle</span>",
               format: "numeric"
             }
           ],
@@ -765,6 +767,10 @@
               {
                 text: "4,112",
                 format: "numeric"
+              },
+              {
+                text: "x",
+                format: "numeric"
               }
             ],
             [
@@ -778,11 +784,19 @@
               {
                 text: "200",
                 format: "numeric"
+              },
+              {
+                text: "x",
+                format: "numeric"
               }
             ],
             [
               {
-                text: "subjects continue..."
+                text: "..."
+              },
+              {
+                text: "#",
+                format: "numeric"
               },
               {
                 text: "#",
@@ -805,7 +819,7 @@
         <div class="govuk-grid-column-full-width govuk-!-padding-left-3 govuk-!-padding-right-3">
           <div class="app-card app-card--blue">
             <span class="app-card__secondary-count">3,031</span>
-            registered
+            registered in Publish
           </div>
         </div>
       </div>
@@ -821,7 +835,7 @@
         <div class="govuk-grid-column-one-third">
           <div class="app-card app-card--red">
             <span class="app-card__tertiary-count">1,169</span>
-            not active)
+            not active
           </div>
         </div>
         <div class="govuk-grid-column-one-third">
@@ -832,6 +846,242 @@
         </div>
 
       </div>
+
+      <h2 class="govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-0">Notifications</h2>
+      <p>Accredited body users who recieve notifications</p>
+
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-one-third">
+          <div class="app-card app-card--green">
+            <span class="app-card__tertiary-count">167</span>
+            opted in
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <div class="app-card app-card--red">
+            <span class="app-card__tertiary-count">8</span>
+            opted out
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <div class="app-card">
+            <span class="app-card__tertiary-count">1102</span>
+            yet to subscribe
+          </div>
+        </div>
+
+      </div>
+      
+      <h2 class="govuk-heading-l govuk-!-margin-top-6">Organisation relationships</h2>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-4 govuk-!-margin-bottom-0">Multi-organisation users</h2>
+      <p>E.g. 210 users belong to 2 organisations</p>
+
+      {{ govukTable({
+        caption: "Multi-organisation users",
+        captionClasses: "govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-0 govuk-visually-hidden",
+        head: [
+          {
+            text: "Number of organisations",
+            classes: 'govuk-!-width-one-third',
+            format: "numeric"
+          },
+          {
+            text: "Number of users",
+            classes: 'govuk-!-width-one-third',
+            format: "numeric"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "1",
+              format: "numeric"
+            },
+            {
+              text: "2759",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "2",
+              format: "numeric"
+            },
+            {
+              text: "210",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "...",
+              format: "numeric"
+            },
+            {
+              text: "...",
+              format: "numeric"
+            }
+          ]
+        ]
+      }) }}
+      
+      <h2 class="govuk-heading-m govuk-!-margin-top-4 govuk-!-margin-bottom-0">User count per organisation</h2>
+      <p>E.g. 27 organisations have 2 users</p>
+
+      {{ govukTable({
+        caption: "User count per organisation",
+        captionClasses: "govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-0 govuk-visually-hidden",
+        head: [
+          {
+            text: "Number of users",
+            classes: 'govuk-!-width-one-third',
+            format: "numeric"
+          },
+          {
+            text: "Number of organisations",
+            classes: 'govuk-!-width-one-third',
+            format: "numeric"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "1",
+              format: "numeric"
+            },
+            {
+              text: "100",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "2",
+              format: "numeric"
+            },
+            {
+              text: "27",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "...",
+              format: "numeric"
+            },
+            {
+              text: "...",
+              format: "numeric"
+            }
+          ]
+        ]
+      }) }}
+      
+      <h2 class="govuk-heading-m govuk-!-margin-top-4 govuk-!-margin-bottom-0">Accredited bodies with multiple training providers</h2>
+      <p>E.g. 46 Accredited bodies ratify courses of 2 providers</p>
+
+      {{ govukTable({
+        caption: "Trainng providers with multtiple accredited bodies",
+        captionClasses: "govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-0 govuk-visually-hidden",
+        head: [
+          {
+            text: "Number of accredited bodies",
+            classes: 'govuk-!-width-one-third',
+            format: "numeric"
+          },
+          {
+            text: "Number of training providers",
+            classes: 'govuk-!-width-one-third',
+            format: "numeric"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "1",
+              format: "numeric"
+            },
+            {
+              text: "23",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "2",
+              format: "numeric"
+            },
+            {
+              text: "27",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "...",
+              format: "numeric"
+            },
+            {
+              text: "...",
+              format: "numeric"
+            }
+          ]
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-4 govuk-!-margin-bottom-0">Training providers with multiple accredited bodies</h2>
+      <p>E.g. 301 training providers have courses accredited by 2 accredited bodies</p>
+
+      {{ govukTable({
+        caption: "User count per organisation",
+        captionClasses: "govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-0 govuk-visually-hidden",
+        head: [
+          {
+            text: "Number of users",
+            classes: 'govuk-!-width-one-third',
+            format: ""
+          },
+          {
+            text: "Number of organisations",
+            classes: 'govuk-!-width-one-third',
+            format: ""
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "1",
+              format: "numeric"
+            },
+            {
+              text: "100",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "2",
+              format: "numeric"
+            },
+            {
+              text: "27",
+              format: "numeric"
+            }
+          ],
+          [
+            {
+              text: "...",
+              format: "numeric"
+            },
+            {
+              text: "...",
+              format: "numeric"
+            }
+          ]
+        ]
+      }) }}
 
       {% endset -%}
 
@@ -917,16 +1167,28 @@
 
       <div class="govuk-grid-row">
 
-        <div class="govuk-grid-column-one-half">
+        <div class="govuk-grid-column-one-quarter">
           <div class="app-card app-card--green">
             <span class="app-card__tertiary-count">###</span>
             new courses created
           </div>
         </div>
-        <div class="govuk-grid-column-one-half">
+        <div class="govuk-grid-column-one-quarter">
           <div class="app-card app-card--red">
             <span class="app-card__tertiary-count">###</span>
             existing courses deleted
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-quarter">
+          <div class="app-card">
+            <span class="app-card__tertiary-count">###</span>
+            existing courses in draft
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-quarter">
+          <div class="app-card">
+            <span class="app-card__tertiary-count">###</span>
+            existing courses not yet reviewed
           </div>
         </div>
 
